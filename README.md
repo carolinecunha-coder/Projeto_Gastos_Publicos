@@ -79,7 +79,7 @@ Execute o script principal:
 python main.py
 ```
 
-A pipeline será responsável pelas etapas de:
+A pipeline será responsável pelas seguintes etapas:
 
 1. Extração dos dados;
 2. Tratamento e transformação;
@@ -172,37 +172,23 @@ Esse modelo facilita a realização de consultas analíticas, agregações e cru
 
 ## 💡 Respostas para as Perguntas do Projeto
 
-### 1. Ranking dos 5 Órgãos Superiores com Maiores Gastos Liquidados
+### 📌 Pergunta 1 — Ranking dos 5 Órgãos Superiores com Maiores Gastos Liquidados
 
-**Raciocínio de Negócio:**
+* **Objetivo de Negócio:** Mapear onde se concentra o maior volume de recursos públicos liquidados para orientar auditorias, priorizar controle de custos e acompanhar a execução orçamentária dos principais órgãos do governo federal.
+* **Concentração Orçamentária:** O Ministério da Fazenda, o Ministério da Previdência Social e o Ministério da Saúde despontam no topo do ranking. Esse comportamento é esperado, visto que essas pastas lidam com pagamentos obrigatórios da dívida pública, benefícios previdenciários e custeio contínuo do Sistema Único de Saúde (SUS).
+* **Implicações para Gestão e Auditoria:** Devido ao alto volume de recursos executados, pequenas variações percentuais nesses órgãos representam bilhões de reais. Portanto, as ações de auditoria interna, controle de contratos e programas de otimização de custos devem priorizar essas unidades para garantir máxima eficiência na aplicação do dinheiro público.
 
-Mapear onde se concentra o maior volume de recursos públicos liquidados para orientar auditorias e o acompanhamento da execução orçamentária.
+### 📌 Pergunta 2 — Gastos Totais por Área/Função de Governo
 
-**Parecer Técnico:**
+* **Objetivo de Negócio:** Identificar quais áreas temáticas recebem as maiores parcelas do orçamento federal, avaliar o cumprimento dos limites constitucionais e monitorar se a distribuição dos pagamentos está alinhada às prioridades estratégicas da gestão pública.
+* **Alocação Social e Estratégica:** Áreas como Encargos Especiais, Previdência Social, Saúde e Educação representam as maiores parcelas dos desembolsos efetivos do Estado. Isso evidencia a priorização de gastos sociais obrigatórios e o cumprimento de pisos constitucionais.
+* **Insights para Tomada de Decisão:** A distribuição permite comparar se o planejamento orçamentário anual está alinhado com as prioridades estratégicas declaradas pelo governo. Funções com baixo volume de pagamentos em relação ao empenho sinalizam obstáculos operacionais no repasse ou na execução de projetos de infraestrutura/desenvolvimento.
 
-A maior parte dos desembolsos está concentrada em ministérios responsáveis por transferências constitucionais, previdência e saúde. Devido ao alto volume financeiro envolvido, otimizações operacionais nessas pastas podem gerar impacto orçamentário relevante.
+### 📌 Pergunta 3 — Comparativo da Execução Orçamentária (Empenhado × Liquidado × Pago)
 
-### 2. Gastos Totais por Área/Função de Governo
-
-**Raciocínio de Negócio:**
-
-Identificar quais áreas temáticas recebem as maiores parcelas do orçamento federal e monitorar a efetividade da execução dos pagamentos.
-
-**Parecer Técnico:**
-
-As funções de **Encargos Especiais, Previdência Social e Saúde** concentram os maiores totais pagos. Eventuais discrepâncias entre empenho e pagamento nessas áreas podem indicar pontos de atenção na execução orçamentária.
-
-### 3. Comparativo da Execução Orçamentária
-
-**Empenhado × Liquidado × Pago**
-
-**Raciocínio de Negócio:**
-
-Medir o nível de execução das obrigações assumidas pelo Governo Federal e identificar diferenças entre as etapas da despesa pública.
-
-**Parecer Técnico:**
-
-Despesas correntes, como pessoal, apresentam alta conversão de empenho em pagamento. Em contrapartida, despesas de capital, como investimentos, podem apresentar diferenças entre os valores empenhados e liquidados, refletindo a complexidade dos prazos envolvidos em obras, contratos e processos de licitação.
+* **Objetivo de Negócio:** Avaliar a eficiência operacional do fluxo financeiro do Estado, medindo a capacidade de conversão dos compromissos assumidos (empenho) em entregas efetivas (liquidação) e quitação de obrigações (pagamento), além de identificar retenções indevidas de capital.
+* **Eficiência no Pagamento:** Em grupos como Pessoal e Encargos Sociais e Outras Despesas Correntes, observa-se alta convergência entre os três valores, indicando rotina operacional eficiente e baixa inadimplência contratual.
+* **Análise de Trava na Execução (Restos a Pagar):** Uma diferença significativa entre o valor Empenhado e o valor Liquidado/Pago em grupos como Investimentos sinaliza entraves burocráticos, atrasos em obras ou problemas em licitações. Esse indicador é fundamental para identificar recursos que ficaram retidos como "Restos a Pagar", permitindo reprogramações financeiras para os exercícios subsequentes.
 
 ---
 
@@ -231,4 +217,5 @@ Conexão do Data Warehouse com ferramentas de Business Intelligence, como **Powe
 **Módulo:** Módulo 2 — Arquitetura e Modelagem de Dados
 
 **Turma:** T1
+
 
