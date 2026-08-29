@@ -15,6 +15,9 @@ Projeto_Gastos_Publicos/
 │   └── 202608_Despesas.csv         # Arquivo CSV bruto extraído
 │
 ├── graficos/                       # Diretório para exportação dos gráficos gerados
+│   ├── 1_top5_orgaos_gastos.png
+│   ├── 2_gastos_por_funcao.png
+│   └── 3_execucao_por_grupo.png
 │
 ├── servico/
 │   ├── __pycache__/                # Cache de execução do Python
@@ -127,19 +130,11 @@ Responsável pelo processo de ETL, incluindo:
 
 Realiza consultas SQL diretamente no Data Warehouse, utilizando a **Tabela Fato** e as **Tabelas Dimensão** para gerar análises e indicadores.
 
-Os gráficos gerados são armazenados no diretório:
-
-```text
-graficos/
-```
+Os gráficos gerados são armazenados no diretório `graficos/` e exibidos na seção de respostas abaixo.
 
 #### 4. Monitoramento e Segurança
 
-O módulo `logging` registra os eventos de execução da pipeline no arquivo:
-
-```text
-execucao_etl.log
-```
+O módulo `logging` registra os eventos de execução da pipeline no arquivo `execucao_etl.log`.
 
 As credenciais de acesso ao PostgreSQL são armazenadas no arquivo `.env`, protegido pelo `.gitignore`.
 
@@ -149,7 +144,7 @@ As credenciais de acesso ao PostgreSQL são armazenadas no arquivo `.env`, prote
 
 O Data Warehouse é estruturado utilizando **modelo dimensional (Star Schema)**, composto por **1 Tabela Fato e 4 Tabelas Dimensão**.
 
-| Tabela                 | Tipo     | Campos Principais                                                                                                 | Descrição                                                              |
+| **Tabela**             | **Tipo** | **Campos Principais**                                                                                             | **Descrição**                                                          |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | `fato_despesas`        | Fato     | `id_fato`, `id_orgao`, `id_funcao`, `id_elemento`, `id_tempo`, `valor_empenhado`, `valor_liquidado`, `valor_pago` | Contém as métricas financeiras e as chaves estrangeiras das dimensões. |
 | `dim_orgao`            | Dimensão | `id_orgao`, `nome_orgao_superior`, `nome_orgao_subordinado`                                                       | Contém a estrutura hierárquica dos órgãos.                             |
@@ -163,12 +158,12 @@ A `fato_despesas` concentra as principais métricas financeiras e se relaciona c
 
 ```text
                     dim_orgao
-                       │
-                       │
+                        │
+                        │
 dim_funcao ───── fato_despesas ───── dim_elemento_despesa
-                       │
-                       │
-                   dim_tempo
+                        │
+                        │
+                    dim_tempo
 ```
 
 Esse modelo facilita a realização de consultas analíticas, agregações e cruzamentos entre diferentes perspectivas dos gastos públicos.
@@ -187,8 +182,6 @@ Mapear onde se concentra o maior volume de recursos públicos liquidados para or
 
 A maior parte dos desembolsos está concentrada em ministérios responsáveis por transferências constitucionais, previdência e saúde. Devido ao alto volume financeiro envolvido, otimizações operacionais nessas pastas podem gerar impacto orçamentário relevante.
 
----
-
 ### 2. Gastos Totais por Área/Função de Governo
 
 **Raciocínio de Negócio:**
@@ -198,8 +191,6 @@ Identificar quais áreas temáticas recebem as maiores parcelas do orçamento fe
 **Parecer Técnico:**
 
 As funções de **Encargos Especiais, Previdência Social e Saúde** concentram os maiores totais pagos. Eventuais discrepâncias entre empenho e pagamento nessas áreas podem indicar pontos de atenção na execução orçamentária.
-
----
 
 ### 3. Comparativo da Execução Orçamentária
 
@@ -240,3 +231,4 @@ Conexão do Data Warehouse com ferramentas de Business Intelligence, como **Powe
 **Módulo:** Módulo 2 — Arquitetura e Modelagem de Dados
 
 **Turma:** T1
+
