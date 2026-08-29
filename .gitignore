@@ -1,0 +1,13 @@
+# Arquivo de senhas e variáveis de ambiente
+.env
+
+# Logs de execução
+execucao_etl.log
+*.log
+
+# Cache do Python
+__pycache__/
+servico/__pycache__/
+
+# Dados brutos em CSV (opcional - ignore se o arquivo for muito pesado)
+base-dados/
